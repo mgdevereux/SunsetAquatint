@@ -222,7 +222,7 @@
         void main() {
     vec2 p = vTexCoord * u_resolution / u_resolution.y;
        vec2 p3 = vTexCoord * u_resolution / u_resolution.y;
-    float time = u_time * u_scaleTime*1.;
+    float time = u_time * u_scaleTime*1.;  //CHANGE
     float xs = u_scaleX;
 
     p += vec2(0.351, 0.03130) * time;
@@ -263,6 +263,10 @@
     float horizonCenter = 0.254352;
     float horizonWidth = 0.102; // Adjust this value to control mountain height
     float mountainNoise = fbm(vec2(p3.x * 1.0, u_seed)); // Use fbm for more natural-looking mountains
+    //CHANGE
+    // float horizonWidth = 0.102/1.11; // Adjust this value to control mountain height
+    //  float mountainNoise = .021*fbm(vec2(p3.x * 100.0, u_seed))+.1*fbm(vec2(p3.x * 10.0, u_seed))+fbm(vec2(p3.x * 1.0, u_seed)); // Use fbm for more natural-looking mountains
+   
     float mountainHeight = horizonCenter + mountainNoise * horizonWidth;
     if (p3.y < mountainHeight && p3.y > horizonCenter - horizonWidth * 0.5) {
         float t = (p3.y - (horizonCenter - horizonWidth * 0.5)) / (mountainHeight - (horizonCenter - horizonWidth * 0.5));
@@ -282,7 +286,7 @@
 
     if(time<1.13)
     {
-    float beamGlow = (20.*.8643-15.*time)*0.0121015/3. / length(p4 - vec2(0.5, 0.0));
+    float beamGlow = (20.*.8643-15.*time)*0.021221015/3. / length(p4 - vec2(0.5, 0.0));  //CHANGE
     float beamWidth = 0.2052;
     float beamIntensity = smoothstep(beamWidth, 0.0, abs(p4.x - 0.5));
     
@@ -291,10 +295,10 @@
     }
 }
     float noise = fract(sin(dot(vTexCoord, vec2(12.9898, 78.233))) * 43758.5453);
-    float noiseStrength = 0.3502/3.5 * pow(u_scaleFactor, 0.7);
+    float noiseStrength = 0.3502/3. * pow(u_scaleFactor, 0.7);  //CHANGE
     finalColor += noiseStrength * (noise - 0.5);
 
-    float darknessScale = max(0.91875, 1.0 - time * 0.05);
+    float darknessScale = max(0.94875, 1.0 - time * 0.05);  //CHANGE
     finalColor *= darknessScale;
 
     gl_FragColor = vec4(finalColor, 1.0);
