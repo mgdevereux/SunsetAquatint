@@ -90,6 +90,13 @@
             //   canvasHeight=2/3*canvasWidth
 
             createCanvas(canvasWidth, canvasHeight,WEBGL);
+                        let gl = this._renderer.GL;
+
+  console.log('WebGL Version:', gl.getParameter(gl.VERSION));
+
+  console.log('WebGL Vendor:', gl.getParameter(gl.VENDOR));
+
+  console.log('WebGL Renderer:', gl.getParameter(gl.RENDERER));
             pixelDensity(1); // Set to 1 for better performance on high-DPI devices
             shaderGraphics = createGraphics(canvasWidth, canvasHeight, WEBGL);
             scaleFactor = min(width, height) / REFERENCE_SIZE;
