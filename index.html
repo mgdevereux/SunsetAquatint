@@ -89,7 +89,7 @@
             //   canvasWidth=200*12
             //   canvasHeight=2/3*canvasWidth
 
-            createCanvas(canvasWidth, canvasHeight);
+            createCanvas(canvasWidth, canvasHeight,WEBGL);
             pixelDensity(1); // Set to 1 for better performance on high-DPI devices
             shaderGraphics = createGraphics(canvasWidth, canvasHeight, WEBGL);
             scaleFactor = min(width, height) / REFERENCE_SIZE;
@@ -122,8 +122,8 @@
             shaderGraphics.shader(combinedShader);
             time += 0.01;
             combinedShader.setUniform('u_time', time);
-            // shaderGraphics.rect(-width / 2, -height / 2, width, height);
-          shaderGraphics.quad(-1, -1, 1, -1, 1, 1, -1, 1);
+            shaderGraphics.rect(-width / 2, -height / 2, width, height);
+          // shaderGraphics.quad(-1, -1, 1, -1, 1, 1, -1, 1);
 //             // shaderGraphics.quad(
 //   -width / 2, -height / 2,
 //    width / 2, -height / 2,
