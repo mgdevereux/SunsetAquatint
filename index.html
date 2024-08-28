@@ -121,7 +121,13 @@
             shaderGraphics.shader(combinedShader);
             time += 0.01;
             combinedShader.setUniform('u_time', time);
-            shaderGraphics.rect(-width / 2, -height / 2, width, height);
+            // shaderGraphics.rect(-width / 2, -height / 2, width, height);
+            shaderGraphics.quad(
+  -width / 2, -height / 2,
+   width / 2, -height / 2,
+   width / 2,  height / 2,
+  -width / 2,  height / 2
+);
 
             image(shaderGraphics, 0, 0);
 
