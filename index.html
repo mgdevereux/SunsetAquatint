@@ -3,6 +3,7 @@
     </head><body><script>
 
 
+        
         let inputHash = window.location.pathname.split('/').pop();
 
         function hashToSeed(hash) {
@@ -121,7 +122,16 @@
             shaderGraphics.shader(combinedShader);
             time += 0.01;
             combinedShader.setUniform('u_time', time);
-shaderGraphics.quad(-1, -1, 1, -1, 1, 1, -1, 1);
+            // shaderGraphics.rect(-width / 2, -height / 2, width, height);
+          shaderGraphics.quad(-1, -1, 1, -1, 1, 1, -1, 1);
+//             // shaderGraphics.quad(
+//   -width / 2, -height / 2,
+//    width / 2, -height / 2,
+//    width / 2,  height / 2,
+//   -width / 2,  height / 2
+// );
+
+            image(shaderGraphics, 0, 0);
 
 
             requestAnimationFrame(animationLoop);
@@ -347,7 +357,6 @@ shaderGraphics.quad(-1, -1, 1, -1, 1, 1, -1, 1);
             [16, 66, 206], [17, 69, 201], [17, 68, 191], [18, 67, 190], [19, 66, 177],
             [22, 61, 174], [21, 66, 186], [20, 70, 198], [20, 69, 202], [20, 68, 202],
             [21, 66, 200], [22, 65, 199], [23, 63, 195], [23, 62, 193], [23, 62, 188]];
-
 
 
 
