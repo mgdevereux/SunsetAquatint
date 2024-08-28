@@ -121,11 +121,7 @@
             shaderGraphics.shader(combinedShader);
             time += 0.01;
             combinedShader.setUniform('u_time', time);
- 
-shaderGraphics.push();
-shaderGraphics.translate(-width/2, -height/2, 0);
-shaderGraphics.plane(width, height);
-shaderGraphics.pop();
+shaderGraphics.quad(-1, -1, 1, -1, 1, 1, -1, 1);
 
 
             requestAnimationFrame(animationLoop);
