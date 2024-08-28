@@ -1,9 +1,8 @@
-<html><head><script src="https://ordinals.com/content/b6a50f5ba932b0ea7f652d9d28e59eced47bc6f8376c25e02d8b3457bb60ac8fi0"></script>
+<html><head><script src="https://ordinals.com/content/7e37766541506810ba6399c4b2735121f508bd9209df43dd200bf2316b014594i0"></script>
     <meta charset="utf-8"><style>body{margin:0}main{display:flex;justify-content:center;width:100%;align-items:center;height:100%}main canvas{width:auto!important;height:auto!important;max-width:100%;max-height:100%}</style>
     </head><body><script>
 
 
-        
         let inputHash = window.location.pathname.split('/').pop();
 
         function hashToSeed(hash) {
@@ -89,14 +88,7 @@
             //   canvasWidth=200*12
             //   canvasHeight=2/3*canvasWidth
 
-            createCanvas(canvasWidth, canvasHeight,WEBGL);
-                        let gl = this._renderer.GL;
-
-  console.log('WebGL Version:', gl.getParameter(gl.VERSION));
-
-  console.log('WebGL Vendor:', gl.getParameter(gl.VENDOR));
-
-  console.log('WebGL Renderer:', gl.getParameter(gl.RENDERER));
+            createCanvas(canvasWidth, canvasHeight);
             pixelDensity(1); // Set to 1 for better performance on high-DPI devices
             shaderGraphics = createGraphics(canvasWidth, canvasHeight, WEBGL);
             scaleFactor = min(width, height) / REFERENCE_SIZE;
@@ -130,13 +122,6 @@
             time += 0.01;
             combinedShader.setUniform('u_time', time);
             shaderGraphics.rect(-width / 2, -height / 2, width, height);
-          // shaderGraphics.quad(-1, -1, 1, -1, 1, 1, -1, 1);
-//             // shaderGraphics.quad(
-//   -width / 2, -height / 2,
-//    width / 2, -height / 2,
-//    width / 2,  height / 2,
-//   -width / 2,  height / 2
-// );
 
             image(shaderGraphics, 0, 0);
 
@@ -156,7 +141,7 @@
         }`;
 
         const fragmentShader = `
-        precision highp float;
+        precision mediump float;
         varying vec2 vTexCoord;
         uniform float u_scaleX;
         uniform float u_scaleY;
@@ -364,6 +349,7 @@
             [16, 66, 206], [17, 69, 201], [17, 68, 191], [18, 67, 190], [19, 66, 177],
             [22, 61, 174], [21, 66, 186], [20, 70, 198], [20, 69, 202], [20, 68, 202],
             [21, 66, 200], [22, 65, 199], [23, 63, 195], [23, 62, 193], [23, 62, 188]];
+
 
 
 
