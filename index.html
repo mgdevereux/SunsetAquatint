@@ -122,12 +122,26 @@
             time += 0.01;
             combinedShader.setUniform('u_time', time);
             // shaderGraphics.rect(-width / 2, -height / 2, width, height);
-            shaderGraphics.quad(
-  -width / 2, -height / 2,
-   width / 2, -height / 2,
-   width / 2,  height / 2,
-  -width / 2,  height / 2
-);
+      try {
+  console.log('About to draw rect:', -width/2, -height/2, width, height);
+  shaderGraphics.rect(-width / 2, -height / 2, width, height);
+  console.log('Rect drawn successfully');
+} catch (error) {
+  console.error('Error drawing rect:', error);
+  // Optionally, try a fallback here only if the error occurs
+  try {
+    console.log('Attempting fallback draw method');
+    shaderGraphics.quad(
+      -width / 2, -height / 2,
+      width / 2, -height / 2,
+      width / 2, height / 2,
+      -width / 2, height / 2
+    );
+    console.log('Fallback draw successful');
+  } catch (fallbackError) {
+    console.error('Fallback draw also failed:', fallbackError);
+  }
+}
 
             image(shaderGraphics, 0, 0);
 
